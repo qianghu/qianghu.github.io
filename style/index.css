@@ -102,7 +102,6 @@ a.referencelink{
 /*****正文部分背景大图样式******/
 #indexbigimg{
 	position: relative;
-	background-image: url(../img/486.jpg);
 	height: 587px;
 	color: #000000;
 }
@@ -161,17 +160,17 @@ a.referencelink{
 	position: relative;
 	background-color: #FFFFFF;
 
-	padding-top: 160px;
+	padding-top: 100px;
 	padding-bottom: 160px;
-	margin-top: 100px;
+	/*margin-top: 100px;*/
 }
 #headpic{
-	display: block;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: -50px;
-	margin: auto;
+    top: -60px;
+	left: 50%;
+	margin-left: -60px;
+    position: absolute;
+	height: 120px;
+    -webkit-border-radius: 120px;
 }
 #selfintruction{
 	
