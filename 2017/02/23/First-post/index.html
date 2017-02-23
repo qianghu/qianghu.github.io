@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Github," />
 
 
 
@@ -87,13 +87,25 @@
 
 
 
+<meta name="description" content="众所周知,我们可以在Github Pages上搭建自己写的页面.那我们如何直接将域名指向Github Pages呢?如果不知道怎么搭建博客和如何使用Github Pages的话,可以参考大神写的开博之篇!
+前提我们先得有一个域名,从网上选一个心仪的域名进行购买.
+域名解析我们需要将你在Github上创建的Github Pages的域名 xxx.github.io进行查询,得到一个IP地址.
+123">
 <meta property="og:type" content="article">
-<meta property="og:title" content="First post">
+<meta property="og:title" content="如何直接将域名指向Github Pages呢?">
 <meta property="og:url" content="http://yoursite.com/2017/02/23/First-post/index.html">
 <meta property="og:site_name" content="My blog">
-<meta property="og:updated_time" content="2017-02-23T06:58:34.000Z">
+<meta property="og:description" content="众所周知,我们可以在Github Pages上搭建自己写的页面.那我们如何直接将域名指向Github Pages呢?如果不知道怎么搭建博客和如何使用Github Pages的话,可以参考大神写的开博之篇!
+前提我们先得有一个域名,从网上选一个心仪的域名进行购买.
+域名解析我们需要将你在Github上创建的Github Pages的域名 xxx.github.io进行查询,得到一个IP地址.
+123">
+<meta property="og:updated_time" content="2017-02-23T07:47:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="First post">
+<meta name="twitter:title" content="如何直接将域名指向Github Pages呢?">
+<meta name="twitter:description" content="众所周知,我们可以在Github Pages上搭建自己写的页面.那我们如何直接将域名指向Github Pages呢?如果不知道怎么搭建博客和如何使用Github Pages的话,可以参考大神写的开博之篇!
+前提我们先得有一个域名,从网上选一个心仪的域名进行购买.
+域名解析我们需要将你在Github上创建的Github Pages的域名 xxx.github.io进行查询,得到一个IP地址.
+123">
 
 
 
@@ -127,7 +139,7 @@
 
 
 
-  <title> First post | My blog </title>
+  <title> 如何直接将域名指向Github Pages呢? | My blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +282,7 @@
             
             
               
-                First post
+                如何直接将域名指向Github Pages呢?
               
             
           </h1>
@@ -285,7 +297,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-23T14:58:34+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-23T17:58:34+08:00">
                 2017-02-23
               </time>
             
@@ -321,7 +333,13 @@
       
 
       
-        
+        <p>众所周知,我们可以在Github Pages上搭建自己写的页面.那我们如何直接将域名指向Github Pages呢?<br>如果不知道怎么搭建博客和如何使用Github Pages的话,可以参考大神写的<a href="http://stevenqiang.online/2017/02/23/first_blog/" target="_blank" rel="external">开博之篇</a>!</p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>我们先得有一个域名,从网上选一个心仪的域名进行购买.</p>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>我们需要将你在Github上创建的Github Pages的域名 xxx.github.io进行查询,得到一个IP地址.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ ping xxx.github.io</div><div class="line">PING github.map.fastly.net (151.101.100.133): 56 data bytes</div><div class="line">64 bytes from 151.101.100.133: icmp_seq=0 ttl=53 time=156.497 ms</div><div class="line">--- github.map.fastly.net ping statistics ---</div><div class="line">2 packets transmitted, 2 packets received, 0.0% packet loss</div><div class="line">round-trip min/avg/max/stddev = 144.956/150.726/156.497/5.771 ms</div></pre></td></tr></table></figure>
+<p>从ping指令得到一个IP地址 151.101.100.133, 将这个IP地址记录下来<br>在域名解析下进行设置<br>添加一个记录类型为A,主机记录为www,解析线路默认,记录值为151.101.100.133的记录<br>再添加一个记录类型为A,主机记录为@,解析线路默认,记录值为151.101.100.133的记录</p>
+<h2 id="Github解析"><a href="#Github解析" class="headerlink" title="Github解析"></a>Github解析</h2><p>在Github的xxx.github.io项目,进入【Settings】标签页,在【Custom domain】功能中,将申请的域名写进去</p>
+
       
     </div>
 
@@ -341,6 +359,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Github/" rel="tag"># Github</a>
+          
+        </div>
       
 
       
@@ -406,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://dn-coding-net-production-static.qbox.me/e3e8293a-33c2-49dc-8463-78fbcd9770c8.jpeg?imageMogr2/auto-orient/format/jpeg/crop/!331x331a66a0"
@@ -431,6 +464,13 @@
           
 
           
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
         </nav>
 
@@ -451,6 +491,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名解析"><span class="nav-number">2.</span> <span class="nav-text">域名解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github解析"><span class="nav-number">3.</span> <span class="nav-text">Github解析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
