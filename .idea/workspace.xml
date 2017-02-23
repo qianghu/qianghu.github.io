@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bb5b587-19f7-4b28-95e7-fa950cf2168c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/11/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2017/02/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2017/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/index.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2017/02/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2017/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2017/02/23/First-post/index.html" afterPath="$PROJECT_DIR$/2017/02/23/First-post/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/Github/index.html" afterPath="$PROJECT_DIR$/tags/Github/index.html" />
     </list>
     <ignored path="qianghu.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -403,7 +397,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487836105167</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="myblog 1.0 fix bug">
+      <created>1487836410871</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1487836410871</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -449,7 +449,8 @@
     <MESSAGE value="change index" />
     <MESSAGE value="hexo theme: next" />
     <MESSAGE value="myblog 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="myblog 1.0" />
+    <MESSAGE value="myblog 1.0 fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="myblog 1.0 fix bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
