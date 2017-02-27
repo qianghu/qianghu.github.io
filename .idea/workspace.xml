@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bb5b587-19f7-4b28-95e7-fa950cf2168c" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CNAME.txt" afterPath="$PROJECT_DIR$/CNAME" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2017/02/23/First-post/index.html" afterPath="$PROJECT_DIR$/2017/02/23/First-post/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2017/02/index.html" afterPath="$PROJECT_DIR$/archives/2017/02/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2017/index.html" afterPath="$PROJECT_DIR$/archives/2017/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/index.html" afterPath="$PROJECT_DIR$/archives/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/Github/index.html" afterPath="$PROJECT_DIR$/tags/Github/index.html" />
     </list>
     <ignored path="qianghu.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2017/02/23/First-post/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CNAME" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CNAME">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -425,7 +429,13 @@
       <option name="project" value="LOCAL" />
       <updated>1488174287182</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add 阅读次数">
+      <created>1488174483072</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1488174483072</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -473,7 +483,8 @@
     <MESSAGE value="myblog 1.0" />
     <MESSAGE value="myblog 1.0 fix bug" />
     <MESSAGE value="add duoshuo" />
-    <option name="LAST_COMMIT_MESSAGE" value="add duoshuo" />
+    <MESSAGE value="add 阅读次数" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 阅读次数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -519,6 +530,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNAME">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
           <folding />
         </state>
       </provider>
