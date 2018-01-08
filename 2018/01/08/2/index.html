@@ -1,0 +1,1164 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="celery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="文档: http://docs.celeryproject.org/en/master/index.html中文版: http://docs.jinkan.org/docs/celery/index.html
+安装 Celery
+    Celery 提交到了 Python Package Index（PyPI）上，所以你可以用标准的 Python 工具，诸如 pip 或 easy_install">
+<meta property="og:type" content="article">
+<meta property="og:title" content="celery 入门">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/2/index.html">
+<meta property="og:site_name" content="Qianghu's blog">
+<meta property="og:description" content="文档: http://docs.celeryproject.org/en/master/index.html中文版: http://docs.jinkan.org/docs/celery/index.html
+安装 Celery
+    Celery 提交到了 Python Package Index（PyPI）上，所以你可以用标准的 Python 工具，诸如 pip 或 easy_install">
+<meta property="og:image" content="http://yoursite.com/images/2/1.png">
+<meta property="og:image" content="http://yoursite.com/images/2/2.png">
+<meta property="og:image" content="http://yoursite.com/images/2/3.png">
+<meta property="og:image" content="http://yoursite.com/images/2/4.png">
+<meta property="og:updated_time" content="2018-01-08T09:39:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="celery 入门">
+<meta name="twitter:description" content="文档: http://docs.celeryproject.org/en/master/index.html中文版: http://docs.jinkan.org/docs/celery/index.html
+安装 Celery
+    Celery 提交到了 Python Package Index（PyPI）上，所以你可以用标准的 Python 工具，诸如 pip 或 easy_install">
+<meta name="twitter:image" content="http://yoursite.com/images/2/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/08/2/"/>
+
+
+
+
+
+  <title> celery 入门 | Qianghu's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qianghu's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Qiang Hu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://dn-coding-net-production-static.qbox.me/e3e8293a-33c2-49dc-8463-78fbcd9770c8.jpeg?imageMogr2/auto-orient/format/jpeg/crop/!331x331a66a0">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Qianghu's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Qianghu's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                celery 入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T16:56:33+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/08/2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/08/2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/08/2/" class="leancloud_visitors" data-flag-title="celery 入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文档: <a href="http://docs.celeryproject.org/en/master/index.html" target="_blank" rel="external">http://docs.celeryproject.org/en/master/index.html</a><br>中文版: <a href="http://docs.jinkan.org/docs/celery/index.html" target="_blank" rel="external">http://docs.jinkan.org/docs/celery/index.html</a></p>
+<pre><code>安装 Celery
+    Celery 提交到了 Python Package Index（PyPI）上，所以你可以用标准的 Python 工具，诸如 pip 或 easy_install 来安装
+    $ pip in stall celery
+</code></pre><h1 id="celery概述"><a href="#celery概述" class="headerlink" title="celery概述"></a>celery概述</h1><p>celery是一个基于消息通信的任务调度分发处理框架，由python语言实现，支持分布式系统部署及任务调度。具备高可用性，任务处理低延时，支持高并发等特性。</p>
+<h1 id="消息队列解决什么问题？"><a href="#消息队列解决什么问题？" class="headerlink" title="消息队列解决什么问题？"></a>消息队列解决什么问题？</h1><p>对于部分需要较长时间处理的任务类型，采用传统的同步处理方式会带来较长时间的性能损耗或是不良的用户体验，如上传文件处理，图像压缩，发送邮件等，此类实时性要求不是特别高的任务类型，采用异步消息队列的模式可以提升处理效率。<br><img src="/images/2/1.png" alt=""><img src="/images/2/2.png" alt=""></p>
+<h1 id="Celery简介"><a href="#Celery简介" class="headerlink" title="Celery简介"></a>Celery简介</h1><p>celery具体工作过程可以归纳如下：<br> 1.预先定义好一系列需要执行的操作(对应python中的函数)，称之为consumers，将其注册到Celery的task中。</p>
+<p> 2.启动Celery服务后，相关的workers会在各自单独的进程中持续监听消息队列，一旦接收到调用消息，worker就会根据相关配置找到consumer执 行，即执行步骤1中定义的函数。</p>
+<p> 3.任务的发起者(或称之为producer)，在调用相关worker之前，需先导入Celery配置环境，然后向指定的worker发送相关消息。</p>
+<p> 4.Celery中的消息接收和分发采用第三方消息中间件，如： RabbitMQ、Redis，MongoDB等，称之为broker。同时，这些消息中间件也可用来存放worker的执行结果(称为backend)。<br> <img src="/images/2/3.png" alt=""></p>
+<h1 id="Celery基本使用"><a href="#Celery基本使用" class="headerlink" title="Celery基本使用"></a>Celery基本使用</h1><p>安装：<br>    celery的Python包：pip install celery<br>    celery依赖的消息中间件，安装方式参考：RabbitMQ，Redis，MongoDB</p>
+<p>基本用法（以rabbitmq作为消息中间件,安装方式macos：brew install rabbitmq，细节参考官网）：</p>
+<p>#建立main.py，输入以下内容：<br>from celery import Celery<br>app = Celery(name=‘task’, broker=’amqp://‘) #name为app实例的名称，非必须，broker为消息中间件的连接地址</p>
+<p>#本示例采用本地rabbitmq,在启动服务前需确保rabbitmq已经启动并可正常连接。若采用远程服务器，则配置成如下格式：</p>
+<p>#’amqp://guest:guest@localhost:5672//‘</p>
+<p>#broker属于app实例配置部分，可通过<br>app.config_from_object(object),app.config_from_envvar(env_name),app.conf.update()等方式配置</p>
+<p>#定义一个函数,注册到task<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayhi</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'hi'</span>;</div></pre></td></tr></table></figure></p>
+<pre><code>注：详细配置参见官方网站
+</code></pre><p>启动方式：<br>终端模式进入到main.py所在目录，执行</p>
+<pre><code>celery -A main worker --loglevel=debug
+</code></pre><p>一般出现以下画面表示启动成功。</p>
+<pre><code>[tasks]
+
+  . celery.backend_cleanup
+
+  . celery.chain
+
+  . celery.chord
+
+  . celery.chord_unlock
+
+  . celery.chunks
+
+  . celery.group
+
+  . celery.map
+
+  . celery.starmap
+
+  . main.sayhi
+
+[2016-09-24 00:36:39,215: DEBUG/MainProcess] | Worker: Starting Pool
+
+[2016-09-24 00:36:39,233: DEBUG/MainProcess] ^-- substep ok
+
+[2016-09-24 00:36:39,234: DEBUG/MainProcess] | Worker: Starting Consumer
+
+[2016-09-24 00:36:39,234: DEBUG/MainProcess] | Consumer: Starting Connection
+
+[2016-09-24 00:36:39,248: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+
+[2016-09-24 00:36:39,249: DEBUG/MainProcess] ^-- substep ok
+
+[2016-09-24 00:36:39,249: DEBUG/MainProcess] | Consumer: Starting Events
+
+[2016-09-24 00:36:39,259: DEBUG/MainProcess] ^-- substep ok
+
+[2016-09-24 00:36:39,259: DEBUG/MainProcess] | Consumer: Starting Heart
+
+[2016-09-24 00:36:39,262: DEBUG/MainProcess] ^-- substep ok
+
+[2016-09-24 00:36:39,262: DEBUG/MainProcess] | Consumer: Starting Tasks
+
+[2016-09-24 00:36:39,266: DEBUG/MainProcess] ^-- substep ok
+
+[2016-09-24 00:36:39,266: DEBUG/MainProcess] | Consumer: Starting Control
+
+[2016-09-24 00:36:39,273: DEBUG/MainProcess] ^-- substep ok
+
+[2016-09-24 00:36:39,273: DEBUG/MainProcess] | Consumer: Starting event loop
+
+[2016-09-24 00:36:39,273: WARNING/MainProcess] celery@Work ready.
+
+[2016-09-24 00:36:39,273: DEBUG/MainProcess] basic.qos: prefetch_count-&gt;32
+</code></pre><p>此时启动了一个worker实例，[tasks]中显示的为监听该worker的consumers，包括我们在main.py中定义的sayhi。</p>
+<p>相关说明：-A表示启动应用实例，main是包含celery实例的文件或是包(在本示例中为main.py)，worker为启动实例的运行模式，该模式下所有定义于main中的task将全部进入监听模式。</p>
+<p>—loglevel=debug:指定log级别为debug模式，此时会有较多的信息列印至终端，便于分析问题。</p>
+<p>在生产环境中，常需要以守护进程的方式在后台运行，可使用supervisor</p>
+<p>注：通过celery help可以查看更多的启动命令提示。</p>
+<p>调用方式：<br>另起一终端环境，进入main.py所在目录，启动python解释环境，执行以下代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> main</div><div class="line">main.sayhi.delay()</div><div class="line">&lt;AsyncResult: <span class="number">7</span>dbd1acb-cd88<span class="number">-402</span>f-bc6c<span class="number">-8</span>c8b386ff544&gt;</div></pre></td></tr></table></figure></p>
+<pre><code>#此时在启动celery服务的终端中，可以看到如下类似消息，表示调用任务成功
+
+[2016-09-24 01:21:23,650: INFO/MainProcess] Received task: main.sayhi[7dbd1acb-cd88-402f-bc6c-8c8b386ff544]
+
+[2016-09-24 01:21:23,651: DEBUG/MainProcess] TaskPool: Apply &lt;function _fast_trace_task at 0x110d802a8&gt; (args:(&apos;main.sayhi&apos;, &apos;7dbd1acb-cd88-402f-bc6c-8c8b386ff544&apos;, [], {}, {&apos;utc&apos;: True, u&apos;is_eager&apos;: False, &apos;chord&apos;: None, u&apos;group&apos;: None, &apos;args&apos;: [], &apos;retries&apos;: 0, u&apos;delivery_info&apos;: {u&apos;priority&apos;: 0, u&apos;redelivered&apos;: None, u&apos;routing_key&apos;: u&apos;celery&apos;, u&apos;exchange&apos;: u&apos;celery&apos;}, &apos;expires&apos;: None, u&apos;hostname&apos;: &apos;celery@Work&apos;, &apos;task&apos;: &apos;main.sayhi&apos;, &apos;callbacks&apos;: None, u&apos;correlation_id&apos;: u&apos;7dbd1acb-cd88-402f-bc6c-8c8b386ff544&apos;, &apos;errbacks&apos;: None, &apos;timelimit&apos;: (None, None), &apos;taskset&apos;: None, &apos;kwargs&apos;: {}, &apos;eta&apos;: None, u&apos;reply_to&apos;: u&apos;3057b462-bedc-3c51-9ea9-83094c8771e7&apos;, &apos;id&apos;: &apos;7dbd1acb-cd88-402f-bc6c-8c8b386ff544&apos;, u&apos;headers&apos;: {}}) kwargs:{})
+
+[2016-09-24 01:21:23,653: DEBUG/MainProcess] Task accepted: main.sayhi[7dbd1acb-cd88-402f-bc6c-8c8b386ff544] pid:34352
+
+[2016-09-24 01:21:23,653: INFO/MainProcess] Task main.sayhi[7dbd1acb-cd88-402f-bc6c-8c8b386ff544] succeeded in 0.000943564984482s: hi
+</code></pre><p>注：调用worker时，要采用delay方法触发异步调用。delay为apply_async方法的简易版本，可满足常规需求。<br>如需特殊调用方式，可参考官方文档关于apply_async的相关说明。<br>在目前情况下，无法获取到函数的返回结果，若需对结果进行存档或是追踪，需要设置backend属性，在main.py中添加以下代码</p>
+<pre><code>#该配置信息指定worker执行完成后，存储结果状态信息的位置。
+
+app.conf.update(CELERY_RESULT_BACKEND=&apos;amqp://&apos;,
+
+                CELERY_MONGODB_BACKEND_SETTINGS={&apos;database&apos;: &apos;celery_dev_db&apos;, &apos;taskmeta_collection&apos;: &apos;workers_tasks_result&apos;})
+
+
+#重新启动Celery服务，在调用程序终端中执行以下语句
+
+&gt;&gt;&gt; res = main.sayhi.delay()
+
+&gt;&gt;&gt; res.ready()               #worker执行完毕，返回True,否则为False
+
+True
+
+&gt;&gt;&gt; res.get()                 #返回worker函数的返回值
+
+&apos;hi&apos;
+
+
+           注：一般情况下不会采用上述的方式来确认worker的返回结果，因为此方式将异步调用变成了同步调用，失去使用celery的意义。
+
+           在需要追踪结果的情况下，可以采用producer轮询backend或是由worker发送消息至producer。
+</code></pre><h1 id="Celery进阶"><a href="#Celery进阶" class="headerlink" title="Celery进阶"></a>Celery进阶</h1><p>a.定时任务：<br>celery可以支持定时任务，预先配置好相关参数，启动服务后可以自动执行。</p>
+<pre><code># 示例，在main.py中增加以下内容
+
+from datetime import timedelta
+
+add_schedule = {
+
+    &apos;add-every-5-seconds&apos;: {&apos;task&apos;: &apos;main.add&apos;, &apos;schedule&apos;: timedelta(seconds=5), &apos;args&apos;: (1, 2)}
+
+}
+
+app.conf.update(CELERYBEAT_SCHEDULE=add_schedule)
+
+@app.task
+
+def add(x,y):
+
+     return x+y
+
+# 以上内容创建一个定时5s自动执行的任务，调用add函数，参数为(1,2)
+
+# 启动方式,通过beat参数执行：celery -A main beat —-loglevel=debug
+
+# 也可以与worker同时启动：celery -A main worker -B —loglevel=debug
+
+# 在需要对定时任务做更精确的控制的情况下，可以采用celery.schedules中的crontab来实现
+
+# 例如，将上述间隔5s的add任务,改变为每周一的早上7：30执行，可以采用如下配置方式：
+
+# from celery.schedules import crontab
+
+# add_schedule = {
+
+#     &quot;add-every-monday-morning&quot;: {“task”:”main.add”,”schedule&quot;:crontab(hour=7, minute=30, day_of_week=1), &quot;args&quot;:(1, 2)}
+
+# }
+
+# app.conf.update(CELERYBEAT_SCHEDULE=add_schedule)
+</code></pre><p>注：设置定时任务时需注意CELERY_TIMEZONE相关设置,详细设置参考</p>
+<p>b.工作流</p>
+<p>celery可以对task进行调用顺序的设置，形成一个任务执行流，对于要加入任务流的函数，需将其进行’签名’操作（或称为建立子任务)。</p>
+<p>下面以main.py中的add函数来作为示例：</p>
+<pre><code>&gt;&gt;&gt; from celery import signature
+
+# new_add作为一个add签名，参数为(2，2),调用new_add 10s后执行add(2,2）
+
+&gt;&gt;&gt; new_add=signature(&apos;main.add&apos;, args=(2, 2), countdown=10)
+
+&gt;&gt;&gt; new_add
+
+main.add(2, 2)
+
+&gt;&gt;&gt; new_add.delay()
+
+&lt;AsyncResult: e5afb013-f907-4111-a9df-d3917237f2fb&gt;
+
+#以上代码可以采用subtask实现相同效果：
+
+&gt;&gt;&gt; new_add=add.subtask((2,2),countdown=10)
+
+&gt;&gt;&gt; new_add
+
+main.add(2, 2)
+
+#还有一种简写方式：
+
+&gt;&gt;&gt; new_add = add.s(2,2)
+
+&gt;&gt;&gt; new_add
+
+main.add(2, 2)
+
+#签名支持部分参数传入
+
+&gt;&gt;&gt; new_add1 = add.s(2)
+
+&gt;&gt;&gt; res = new_add1.delay(3)
+
+&gt;&gt;&gt; res.get()
+
+5
+
+&gt;&gt;&gt;
+</code></pre><p>上述签名的应用方式看起来似乎用处不大，但签名可以通过delay和apply_async传入参数的方式调用，这样可以将任务组装成工作流。</p>
+<pre><code># 通过link将签名任务链接到当前执行的任务
+
+&gt;&gt;&gt; res=add.apply_async((5,2),link=add.s(9))
+
+&gt;&gt;&gt; res.get()
+
+7
+
+&gt;&gt;&gt; res.children[0].get()
+
+16
+
+&gt;&gt;&gt; list(res.collect())
+
+[(&lt;AsyncResult: 371f21c7-d546-45ef-b5b7-dea124114754&gt;, 7), (&lt;AsyncResult: 24938b03-ad1a-41dd-91de-61bbc5cce851&gt;, 16)]
+
+&gt;&gt;&gt;
+
+# 通过chain组合多个子任务
+
+&gt;&gt;&gt; from celery import chain
+
+&gt;&gt;&gt; res = chain(add.s(1, 2), add.s(3), add.s(4)).delay()
+
+&gt;&gt;&gt; res.get()
+
+10
+
+&gt;&gt;&gt;
+
+#通过group组合多个子任务
+
+&gt;&gt;&gt; from celery import group
+
+&gt;&gt;&gt; res = group(add.s(1, 1), add.s(2, 2), add.s(3, 3), add.s(4, 4)).delay()
+
+&gt;&gt;&gt; res.get()
+
+[2, 4, 6, 8]
+
+&gt;&gt;&gt;
+</code></pre><p>关于工作流的应用，celery还有内置chord，map，starmap，chunks等内置方法，详细使用方式参考官方文档</p>
+<p>c.消息分发与任务调度的实现机制：</p>
+<p>producer发出调用请求(message包含所调用任务的相关信息)—&gt;celery服务启动时，会产生一个或多个交换机(exchanges)，对应的交换机</p>
+<p>接收请求message—&gt;交换机根据message内容，将message分发到一个或多个符合条件的队列(queue)—&gt;每个队列上都有一个或多个worker</p>
+<p>在监听，在监听到符合条件的message到达后，worker负责进行任务处理，任务处理完被确认后，队列中的message将被删除。<br><img src="/images/2/4.png" alt=""></p>
+<p>celery支持所有AMQP(Advanced Message Queuing Protocol:高级消息队列协议）路由机制，可以通过配置的方式，执行相关的</p>
+<p>消息路由路径。</p>
+<pre><code># 在main.py中增加以下代码
+
+from kombu import Exchange, Queue
+
+#增加两个task,test_queue_1与test_queue_2
+
+@app.task
+
+def test_queue_1():
+
+    return &apos;queue1&apos;
+
+@app.task
+
+def test_queue_2():
+
+    return &apos;queue2&apos;
+
+# queue_1与queue_2为消息队列名称
+
+# Exchange:为交换机实例，具有不同的类型。详细参考
+
+# routing_key:用来告知exchange将task message传送至相对应的queue
+
+queue = (
+
+    Queue(&apos;queue_1&apos;, Exchange(&apos;Exchange1&apos;, type=&apos;direct&apos;), routing_key=&apos;queue_1_key&apos;),
+
+    Queue(&apos;queue_2&apos;, Exchange(&apos;Exchange2&apos;, type=&apos;direct&apos;), routing_key=&apos;queue_2_key&apos;)
+
+)
+
+route = {
+
+    &apos;main.test_queue_1&apos;: {&apos;queue&apos;: &apos;queue_1&apos;, &apos;routing_key&apos;: &apos;queue_1_key&apos;},
+
+    &apos;main.test_queue_2&apos;: {&apos;queue&apos;: &apos;queue_2&apos;, &apos;routing_key&apos;: &apos;queue_2_key&apos;}
+
+}
+
+app.conf.update(CELERY_QUEUES=queue, CELERY_ROUTES=route)
+
+#########
+
+# 为直观的观察效果，开启终端1运行以下命令，监听queue_1队列：
+
+celery -A main worker -Q queue_1 --loglevel=debug
+
+# 开启终端2运行以下命令，监听queue_2队列：
+
+celery -A main worker -Q queue_2 --loglevel=debug
+
+# 此时调用main.py中的test_queue_1和test_queue_2，会发现task被分发到各个对应的celery worker服务。
+
+# 对于没有被队列接收的sayhi函数，通过sayhi.apply_async(queue=&apos;queue_1’)可以将任务分发到queue_1
+</code></pre><p>celery的广播模式(该模式仅仅在broker采用RabbitMQ，Redis才可以使用</p>
+<pre><code># 在main.py中，添加以下代码，
+
+from kombu.common import Broadcast
+
+@app.task
+
+def broadcast():
+
+    return &apos;broadcast&apos;
+
+queue_bor = (
+
+    Broadcast(&apos;broadcast_tasks’), #此处设置消息队列broadcast为广播模式，及该队列上的消息会发送至所有监听它的worker
+
+    Queue(&apos;broadcast_tasks&apos;),
+
+)
+
+queue_route = {
+
+    &apos;main.broadcast&apos;: {&apos;queue&apos;: &apos;broadcast_tasks&apos;},
+
+}
+
+app.conf.update(CELERY_QUEUES=queue_bor, CELERY_ROUTES=queue_route)
+</code></pre><p>按以上配置后，同时在两个终端启动celery服务，通过broadcast.delay()调用task时，会发现两个celery实例均有执行broadcast函数。</p>
+<p>基于上述内容，可以应付大部分的异步消息处理的情况。若需进一步深入，请参阅官方文档</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/celery/" rel="tag"># celery</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/23/First-post/" rel="next" title="如何直接将域名指向Github Pages?">
+                <i class="fa fa-chevron-left"></i> 如何直接将域名指向Github Pages?
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/01/08/2/"
+           data-title="celery 入门" data-url="http://yoursite.com/2018/01/08/2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://dn-coding-net-production-static.qbox.me/e3e8293a-33c2-49dc-8463-78fbcd9770c8.jpeg?imageMogr2/auto-orient/format/jpeg/crop/!331x331a66a0"
+               alt="Qiang Hu" />
+          <p class="site-author-name" itemprop="name">Qiang Hu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/qianghu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#celery概述"><span class="nav-number">1.</span> <span class="nav-text">celery概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#消息队列解决什么问题？"><span class="nav-number">2.</span> <span class="nav-text">消息队列解决什么问题？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Celery简介"><span class="nav-number">3.</span> <span class="nav-text">Celery简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Celery基本使用"><span class="nav-number">4.</span> <span class="nav-text">Celery基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Celery进阶"><span class="nav-number">5.</span> <span class="nav-text">Celery进阶</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiang Hu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qianghu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("RnOvKWnbjcAHQ7sSxY1Ujy9r-gzGzoHsz", "LUD4zxBqaimWV6so30OkJjDf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
